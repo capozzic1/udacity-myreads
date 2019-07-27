@@ -9,11 +9,26 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
- 
-      </header>
       <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/search">Search</Link>
+            </li>
+  
+          </ul>
+        </nav>
         <Route path="/" exact component={MainPage} />
+        <Route path="/search" component={SearchPage} />
+      </div>
+       
       </Router>
+      </header>
+   
     </div>
   );
 }

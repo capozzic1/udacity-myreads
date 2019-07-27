@@ -7,6 +7,10 @@ export default class SearchPage extends React.Component {
     }
 
     render() {
-        return null;
+        return (
+            <div>
+                
+            </div>
+        )
     }
 }
