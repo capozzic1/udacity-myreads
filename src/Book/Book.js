@@ -1,17 +1,31 @@
 import React from 'react';
 import Dropdown from '../Dropdown/Dropdown';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
-export default function Book({ book, getBooks }) {
+export default function Book({ book, getBooks, updateSingleBook}) {
     return (
-        <div>
+        
+        <div className="book">
+            <Row>
+            <Col lg={{ span: 6, offset: 3}}>
             <img src={book.imageLinks ? book.imageLinks.thumbnail : "" } alt={book.title} />
-            <h1>{book.title}</h1>
-            <ul>
-                {   book.authors &&
+            </Col>
+            <Col lg="12">
+            <h4 className="text-center">{book.title}</h4>
+            </Col>
+            <Col lg={{ span:8, offset: 1}}>
+            <ul className="text-center">
+                {   
+                    book.authors &&
                     book.authors.map((author, i) => <li key={i}>{author}</li>)
                 }
             </ul>
-            <Dropdown getBooks={getBooks} book={{ id: book.id, shelf: book.shelf }} />
-        </div>
+            </Col>
+            </Row>
+            
+            <Dropdown getBooks={getBooks} updateSingleBook={updateSingleBook} book={{ id: book.id, shelf: book.shelf }} />
+            </div>
+        
     )
 }
